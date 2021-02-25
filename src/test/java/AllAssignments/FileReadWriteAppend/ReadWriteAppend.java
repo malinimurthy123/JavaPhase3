@@ -11,7 +11,7 @@ public class ReadWriteAppend {
 
         FileOperations newFile = new FileOperations();
         newFile.readFromFile();
-        newFile.modifyFile("I am editing this file again!");
+        newFile.modifyFile("File Editing with this : + To create a file in Java, you can use the createNewFile()");
         newFile.readFromFile();
 
     }

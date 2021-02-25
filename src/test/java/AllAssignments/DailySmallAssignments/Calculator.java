@@ -1,4 +1,4 @@
-package AllAssignments;
+package AllAssignments.DailySmallAssignments;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

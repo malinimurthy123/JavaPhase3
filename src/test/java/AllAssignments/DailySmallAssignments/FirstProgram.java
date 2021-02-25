@@ -1,4 +1,4 @@
-package AllAssignments;
+package AllAssignments.DailySmallAssignments;
 
 public class FirstProgram {
 
