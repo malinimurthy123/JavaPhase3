@@ -24,6 +24,7 @@ public class LockedMe {
     }
 
     public static void userLockedMeScreen() {
+        System.out.println("Welcome- LOCKEDME.COM \n");
         System.out.println("Application Name : LOCKEDME.COM \n");
         System.out.println("Developer        : Malini.Murthy \n");
     }
