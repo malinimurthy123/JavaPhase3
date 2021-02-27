@@ -1,5 +1,7 @@
 package AllAssignments.EmailIDValidation;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 /*
@@ -10,24 +12,14 @@ public class EmailValidation {
 
     public static void main(String[] args) {
 
-        String[] strArray = { "malini.kr@gmail.com", "malini.murthy@gmail.com", "balaji@gmail.com" };
+        List<String> list = Arrays.asList("malini.kr@gmail.com", "malini.murthy@gmail.com", "balaji@gmail.com");
 
         System.out.println("Enter the email ID to be searched");
         Scanner sc = new Scanner(System.in);
         String emailID = sc.nextLine();
 
-        boolean found = false;
-        int index = 0;
-
-        for (int i = 0; i < strArray.length; i++) {
-            if(emailID.equals(strArray[i])) {
-                index = i; found = true; break;
-            }
-        }
-        if(found)
-            System.out.println(emailID +" found at the index "+index);
-        else
-            System.out.println(emailID +" not found in the array");
+        boolean match = list.stream().anyMatch(s -> emailID.contains(s));
+        System.out.println(match);
     }
 }
 
