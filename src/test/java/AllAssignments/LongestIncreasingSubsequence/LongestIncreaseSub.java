@@ -1,5 +1,4 @@
 package AllAssignments.LongestIncreasingSubsequence;
-import java.util.*;
 
 /*
 write a Java code to find the longest increasing subsequence from a list of random numbers.
@@ -9,45 +8,26 @@ Malini.Murthy
 
 public class LongestIncreaseSub {
 
-        public static void main(String[] args) {
-            int arr[]={10,21,45,22,7,2,67,19,13,45,12,11,18,16,17,100,201,20,101};
-            System.out.println("Length of sequence:"+findLengthLongestSequence(arr));
-        }
-
-        private static int findLengthLongestSequence(int[] arr) {
-            Set<Integer> value=new HashSet<Integer>();
-
-            for(int i:arr){
-                value.add(i);
-            }
-            int max=100;
-            int start=0; // to store the first element of the longest sequence
-            for(int i:arr){
-                int left=i-1;
-                int right=i+1;
-                int count=1;
-                while(value.contains(left)){
-                    value.remove(left--);
-                    count++;
-                }
-                while(value.contains(right)){
-                    value.remove(right++);
-                    count++;
-                }
-
-                if(max<count){
-                    max=count;
-                    start=left+1;
-                }
-            }
-            System.out.println("Sequence:");
-            for(int i=start;i<start+max;i++){
-                System.out.print(i+" ");
-            }
-            System.out.println();
-            return max;
-        }
+    public static void main(String args[]){
+        int my_arr[] = { 5,10, 22, 9, 33, 21, 50, 41, 60,71, 80, 91, 100,110};
+        int arr_len = my_arr.length;
+        System.out.println("The length of the longest increasing subsequence is " +  increase_subseq(my_arr, arr_len));
     }
+    static int increase_subseq(int my_arr[], int arr_len){
+        int seq_arr[] = new int[arr_len];
+        int i, j, max = 0;
+        for (i = 0; i < arr_len; i++)
+            seq_arr[i] = 1;
+        for (i = 1; i < arr_len; i++)
+            for (j = 0; j < i; j++)
+                if (my_arr[i] > my_arr[j] && seq_arr[i] < seq_arr[j] + 1)
+                    seq_arr[i] = seq_arr[j] + 1;
+        for (i = 0; i < arr_len; i++)
+            if (max < seq_arr[i])
+                max = seq_arr[i];
+        return max;
+    }
+ }
 
 
 
