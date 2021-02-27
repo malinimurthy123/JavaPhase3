@@ -19,7 +19,12 @@ public class EmailValidation {
         String emailID = sc.nextLine();
 
         boolean match = list.stream().anyMatch(s -> emailID.contains(s));
-        System.out.println(match);
+        if (match)
+
+            System.out.println( emailID + ": Exists :" + match );
+        else
+            System.out.println(emailID + ": Does Not Exist : " + match);
+
     }
 }
 
