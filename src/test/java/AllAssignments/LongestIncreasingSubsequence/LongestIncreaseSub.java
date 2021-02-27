@@ -8,8 +8,10 @@ Malini.Murthy
 
 public class LongestIncreaseSub {
 
+
     public static void main(String args[]){
-        int my_arr[] = { 5,10, 22, 9, 33, 21, 50, 41, 60,71, 80, 91, 100,110};
+        final int my_arr[] = { 5,10, 22, 9, 33, 21, 50, 41, 60,71, 80, 91, 100,110};
+        //int my_arr[] = { 5,10, 22, 9, 33, 21, 50, 41, 60,71, 80, 91, 100,110};
         int arr_len = my_arr.length;
         System.out.println("The length of the longest increasing subsequence is " +  increase_subseq(my_arr, arr_len));
     }
