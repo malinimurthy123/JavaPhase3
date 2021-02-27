@@ -1,8 +1,16 @@
 package AllAssignments.DailySmallAssignments;
+import java.util.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.Scanner;
+
+
+/*
+Malini.Murthy
+As a developer, fix the bugs in the application using the appropriate algorithmic techniques.
+The source code should be pushed to your GitHub repositories. You need to document the steps and write the algorithms in the Google Docs.
+The link of your GitHub repository is must. In order to track your task, you need to share the link of the repository. You can add a section in the Google Docs.
+Document the step-by-step process involved in completing this task.
+ */
 
 public class BugFixAssignment {
 
@@ -74,7 +82,7 @@ public class BugFixAssignment {
                         optionsSelection();
                         break;
                     case 5:
-                        searchExpenses(expenses);
+                        searchExpenses(expenses, sc);
                         optionsSelection();
                         break;
                     case 6:
@@ -90,14 +98,59 @@ public class BugFixAssignment {
     private static void closeApp() {
         System.out.println("Closing your application... \nThank you!");
     }
+    /*Original Code that needs Bug Fix
     private static void searchExpenses(ArrayList<Integer> arrayList) {
         int leng = arrayList.size();
         System.out.println("Enter the expense you need to search:\t");
         //Complete the method
 
+    }*/
+
+    /*
+    Code that has the bug fix for method searchExpenses
+    Malini.Murthy
+     */
+
+    private static void searchExpenses(List<Integer> arrayList, Scanner inputAccept) {
+        System.out.println("Enter the expense you need to search:\t");
+
+        int key = -1;
+        try {
+            key = inputAccept.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("\n");
+            return;
+        }
+
+        System.out.println(arrayList);
+
+        // Searching the input value in the List using Key value pair
+
+        int index = arrayList.indexOf(key);
+
+        if (index < 0)
+            System.out.println(key + " is not present in the list!");
+        else
+            System.out.println("Value " + "[ " + key + " ]" + " has been found at index: " + index);
     }
+
+
+/* Old code that needs bug fix and method implementation
     private static void sortExpenses(ArrayList<Integer> arrayList) {
         int arrlength =  arrayList.size();
         //Complete the method. The expenses should be sorted in ascending order.
     }
+
+ */
+
+    /*
+    Code that has the bug fix for method sortExpenses
+    Malini.Murthy
+     */
+    private static void sortExpenses(List<Integer> arrayList) {
+        Collections.sort(arrayList);
+        System.out.println("\n" + arrayList);
+    }
+
+
 }
