@@ -1,4 +1,4 @@
-package AllAssignments.DailySmallAssignments;
+package AllAssignments.BugFixAssignment;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.Scanner;
