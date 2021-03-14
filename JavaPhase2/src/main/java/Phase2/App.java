@@ -1,6 +1,10 @@
 package Phase2;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Scanner;
 
 public class App
@@ -46,14 +50,11 @@ public class App
 
     public static void main( String[] args ) throws SQLException {
 
-        System.out.println("Please enter the ID:");
-        int id = new Scanner(System.in).nextInt();
+        new App().getAllRecords();
 
-    	new App().getAllRecords(id);
+        //System.out.println("Please enter the ID:");
 
-
-
-
+        //int id = new Scanner(System.in).nextInt();
 
         //new App().getLearnerDetailsById(id);
 
@@ -67,19 +68,13 @@ public class App
 
 
     //    Get All Records from table:learners
-    void getAllRecords(int ID) {
+    void getAllRecords() {
 //    	Write the query to fetch all rows from table:learners
-        qry = "select * from users where Id = ?";
-
-        //select * from learners where learnerId = ?"
+        qry = "select * from users";
 
         try {
 
-            //Get a reference to the PreparedStatement
-            java.sql.PreparedStatement thePreparedStatement = dbCon.prepareStatement(qry);
 
-//			Set the value for ?
-            thePreparedStatement.setInt(1, ID);
 //			Execute the query
             ResultSet theResultSet = theStatement.executeQuery(qry);
 
@@ -123,7 +118,7 @@ public class App
     //Add new user
 
     void addNewUser() throws SQLException {
-    //Insert new record
+        //Insert new record
 
         qry="insert into users(Id, name, Location) values(4, 'Balaji', 'SriLanka')";
         theStatement.executeUpdate(qry);
